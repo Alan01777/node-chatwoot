@@ -1,0 +1,51 @@
+{
+  "name": "@alan01777/node-chatwoot",
+  "version": "1.0.0",
+  "description": "Chatwoot API client for Node.js — type-safe, multi-account, testable",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "alan01777",
+    "email": "camp.alan3@gmail.com"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "import": "./dist/testing/index.js",
+      "require": "./dist/testing/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "chatwoot",
+    "api",
+    "client",
+    "omnichannel"
+  ],
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
