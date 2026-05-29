@@ -1,6 +1,9 @@
 {
   "name": "@alan01777/node-chatwoot",
   "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Chatwoot API client for Node.js — type-safe, multi-account, testable",
   "type": "module",
   "license": "MIT",
