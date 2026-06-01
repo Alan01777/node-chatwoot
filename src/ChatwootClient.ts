@@ -73,11 +73,12 @@ export class ChatwootClient implements ChatwootClientInterface {
     const res = await fetch(url, init);
 
     if (!res.ok) {
+      const text = await res.text();
       let body: unknown;
       try {
-        body = await res.json();
+        body = JSON.parse(text);
       } catch {
-        body = await res.text();
+        body = text;
       }
       throw new ChatwootClientError(
         `Chatwoot API error: ${res.status} ${res.statusText}`,
@@ -212,8 +213,9 @@ export class ChatwootClient implements ChatwootClientInterface {
     });
 
     if (!res.ok) {
+      const text = await res.text();
       let body: unknown;
-      try { body = await res.json(); } catch { body = await res.text(); }
+      try { body = JSON.parse(text); } catch { body = text; }
       throw new ChatwootClientError(`Chatwoot API error: ${res.status} ${res.statusText}`, res.status, body);
     }
 
